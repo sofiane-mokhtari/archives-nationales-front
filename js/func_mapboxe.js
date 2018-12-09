@@ -79,7 +79,30 @@ function place_trait(map, origin, destination, id)
     return (id);
 }
 
-function place_point(map, date, lay)
+// function put_pop_up(map, id)
+// {
+//     map.on('mouseenter', id, function(e)
+//     {
+//       map.getCanvas().style.cursor = 'pointer';
+//       var coordinates = e.features[0].geometry.coordinates.slice();
+//       var pop = '<a href="html/presentation_discours.html?discour=';
+//       pop = pop.concat(encodeURIComponent(e.features[0].source));
+//       pop = pop.concat('">WORLD</a>');
+//       console.log(pop);
+//       console.log(e.features[0].source);
+//       popup.setLngLat(coordinates)
+//           .setHTML(pop)
+//           .addTo(map);
+//     });
+
+//     map.on('click', id, function()
+//     {
+//       map.getCanvas().style.cursor = '';
+//       popup.remove();
+//     });
+// }
+
+function place_point(map, date)
 {
     console.log("PLACEEEEEEEEEEEEEEEEEEE");
     var city = new Array;
@@ -103,17 +126,19 @@ function place_point(map, date, lay)
     }
     console.log(dict.length);
     city = new Array;
-    var j = 0;
+    var j = dict.length - 1;
+    var lay = new Array;
     for (var i = dict.length - 1; i >= 0; i--)
     {
         if (dict[i] != undefined && dict[i]['longitude'] != undefined)
         {
-            console.log(i);
             city[j] = new Array;
-            city[j++] = [dict[i]['longitude'], dict[i]['latitude']]
+            city[j] = [dict[i]['longitude'], dict[i]['latitude']];
+            console.log(city[j]);
+            console.log(dict[i]);
+            lay.push(place_bite(map, city[j--], dict[i]['date'].concat(dict[i]['lieu'])));
         }
     }
-    lay = (place_bite(map, city, i.toString().concat(" point")));
     console.log(city);
     return (lay);
 }

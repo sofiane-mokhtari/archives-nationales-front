@@ -27,16 +27,22 @@ type: 'line',
 data: {
     labels: ["1990", "1991", "1992", "1993", "1994", "1995", "July"],
     datasets: [{
-        label: "Word",
+        label: "FRANCE",
         backgroundColor: 'rgb(255, 99, 132)',
         borderColor: 'rgb(255, 99, 132)',
         data: [0, 10, 5, 2, 20, 30, 45],
     },
     {
-      label: "Second_word",
+      label: "Guerre",
       backgroundColor: 'rgb(200, 99, 132)',
       borderColor: 'rgb(255, 99, 132)',
       data: [10, 110, 5, 2, 20, 30, 45],
+    },
+    {
+      label: "Emploie",
+      backgroundColor: 'rgb(150, 20, 150)',
+      borderColor: 'rgb(50, 99, 50)',
+      data: [30, 40, 60, 65, 67, 90, 92],
     }
   ]
 },
