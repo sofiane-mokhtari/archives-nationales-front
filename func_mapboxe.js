@@ -31,6 +31,34 @@ function place_bite(map, line, id)
     return (id);
 }
 
+function  trace_trajectoire(map, list_coord, id){
+  map.addLayer({
+        "id": "route",
+        "type": "line",
+        "source": {
+            "type": "geojson",
+            "data": {
+                "type": "Feature",
+                "properties": {},
+                "geometry": {
+                    "type": "LineString",
+                    "coordinates": list_coord
+                }
+            }
+        },
+        "layout": {
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        "paint": {
+            "line-color": "#255",
+            "line-width": 80
+        }
+  });
+  return (id);
+}
+
+
 function place_trait(map, origin, destination, id)
 {
     map.addLayer(
