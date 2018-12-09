@@ -3,38 +3,32 @@ var map = new mapboxgl.Map(
 {
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v10',
-    zoom: 1.5,
-    center: [1.8303620284697504, 43.81047291814947]
+    zoom: 4,
+    center: [2.43896484375, 46.52863469527167]
 });
 
 map.on('load', function () {
-    lay = place_bite(map, [2.376084880952381, 48.84495494047618], "Discours");
-    trace_trajectoire(map, [[-47.393997823529396, 0.6],
-              [-122.48348236083984, 37.83317489144141],
-              [-122.48339653015138, 37.83270036637107],
-              [-122.48356819152832, 37.832056363179625],
-              [-122.48404026031496, 37.83114119107971],
-              [-122.48404026031496, 37.83049717427869],
-              [-122.48348236083984, 37.829920943955045],
-              [-122.48356819152832, 37.82954808664175],
-              [-122.48507022857666, 37.82944639795659],
-              [-122.48610019683838, 37.82880236636284],
-              [-122.48695850372314, 37.82931081282506],
-              [-4.48700141906738, 37.83080223556934],
-              [-122.48751640319824, 37.83168351665737],
-              [-122.48803138732912, 37.832158048267786],
-              [-122.48888969421387, 37.83297152392784],
-              [-122.48987674713133, 37.83263257682617],
-              [-122.49043464660643, 37.832937629287755],
-              [-122.49125003814696, 37.832429207817725],
-              [-122.49163627624512, 37.832564787218985],
-              [-122.49223709106445, 37.83337825839438],
-              [-122.49378204345702, 37.83368330777276]], "test")
-});
+  lay = place_bite(map, [2.43896484375, 46.52863469527167] , "18_08_1980-Paris");
+  var popup = new mapboxgl.Popup({
+          closeButton: false,
+          closeOnClick: false
+      });
 
-var btt = document.getElementById("button");
-var ann = document.getElementById("anne");
-ann.addEventListener('over', function() {console.log(ann.value)});
-btt.addEventListener('click', function() {
-    map.removeLayer(lay)
+  map.on('mouseenter', '18_08_1980-Paris', function(e) {
+      map.getCanvas().style.cursor = 'pointer';
+      var coordinates = e.features[0].geometry.coordinates.slice();
+      var pop = '<a href="html/presentation_discours.html?discour=';
+      pop = pop.concat(encodeURIComponent(e.features[0].source));
+      pop = pop.concat('">WORLD</a>');
+      console.log(pop);
+      console.log(e.features[0].source);
+      popup.setLngLat(coordinates)
+          .setHTML(pop)
+          .addTo(map);
+  });
+
+  map.on('click', '18_08_1980-Paris', function() {
+      map.getCanvas().style.cursor = '';
+      popup.remove();
+  });
 });

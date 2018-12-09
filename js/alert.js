@@ -1,26 +1,30 @@
-var modal = document.getElementById('myModal');
-var btn = document.getElementById("myBtn");
-var span = document.getElementsByClassName("close")[0];
+var btn = document.getElementById('myBtn');
+var spa = document.getElementById('div_close');
 
-
-btn.onclick = function() {
-    modal.style.display = "block";
+spa.onclick = function(event)
+{
+	var modal = document.getElementById('myModal');
+    if (event.target == modal)
+    {
+        modal.style.display = "none";
+    }
 }
 
-
-span.onclick = function() {
-    modal.style.display = "none";
+btn.onclick = function()
+{
+	console.log("fkflhdkdsf");
+	var modal = document.getElementById('myModal');
+	var id_to_div = document.getElementsByClassName("modal-body");
+	modal.style.display = "block";
+	id_to_div.innerHTML = txt;
+    
 }
 
-
-window.onclick = function(event) {
-	var fileSystem = new ActiveXObject("Scripting.FileSystemObject");
-	var monfichier = fileSystem.OpenTextFile("..\\..\\text.txt", 1 ,true);
-	var txt = monfichier.ReadAll();
-	monFichier.Close();
-	var id_to_div = getElementById("bodyy");
-	bodyy.innerHTML = txt;
-    if (event.target == modal) {
+window.onclick = function(event, txt)
+{
+	var modal = document.getElementById('myModal');
+    if (event.target == modal)
+    {
         modal.style.display = "none";
     }
 }

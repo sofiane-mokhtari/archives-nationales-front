@@ -19,20 +19,15 @@ p {
   text-align: left;
 }
 
-/**
-* Create a position for the map
-* on the page */
 #map {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 75%;
+  top: 25%;
+  bottom: 25%;
+  right: 25%;
+  width: 50%;
+  height: 50%;
 }
 
-/**
-* Set rules for how the map overlays
-* (info box and legend) will be displayed
-* on the page. */
 .map-overlay {
   position: absolute;
   bottom: 0;

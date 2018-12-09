@@ -1,6 +1,5 @@
 class ajax
 {
-	
 	constructor()
 	{
 		var	xhr
@@ -24,7 +23,7 @@ class ajax
 		}
 		this.xhr = xhr;
 	}
-
+	
 	rqt_get(adr)
 	{
 		this.xhr.open("GET", adr, true);
