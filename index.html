@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css" type="text/css">
+    <style>
+      .map {
+        height: 400px;
+        width: 100%;
+      }
+    </style>
+    <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
+    <title>OpenLayers example</title>
+  </head>
+<body id ="bdd">
+ <label for="anne">Annee</label>
+  <input id="anne" type="range" list="lst_anne" min="1980" max="2005" value="1980 step="1">
+  <datalist id="lst_anne">
+    <option label="Minimum" value="1980">
+    <option label="Maximum" value="2005">
+  </datalist>
+  <button id="button">Voir cette annee</button>
+  <div id='map' style='width: 1200px; height: 800px;'></div>
+  <script language="javascript" src="script.js"></script>
+</body>
+</html>
