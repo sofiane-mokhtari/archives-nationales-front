@@ -9,5 +9,5 @@ var map = new mapboxgl.Map(
 
 map.on('load', function () {
   var lay;
-  lay = place_point(map, "1980");
+  lay = place_point(map, "1988");
 });

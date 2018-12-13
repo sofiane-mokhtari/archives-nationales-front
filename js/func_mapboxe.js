@@ -136,7 +136,7 @@ function place_point(map, date)
             city[j] = [dict[i]['longitude'], dict[i]['latitude']];
             console.log(city[j]);
             console.log(dict[i]);
-            lay.push(place_bite(map, city[j--], dict[i]['date'].concat(dict[i]['lieu'])));
+            lay.push(place_bite(map, city[j--], dict[i]['date'].concat('-').concat(dict[i]['lieu'])));
         }
     }
     console.log(city);
